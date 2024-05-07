@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="script.js"></script>
+        <title>Vivaldi</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .contentService {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+
+            }
+            .serviceImage {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .contentSerivce {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .serviceText {
+                margin: 25px 0 0 0;
+                text-align: center;
+                color: white;
+            }
+            .serviceList {
+                width: 80%;
+                background-color: #892201;
+                color: white;
+                border-radius: 25px 25px 25px 25px;
+                text-align: center;
+                margin: 25px 0 25px 0;
+            }
+            .serviceContacts {
+                text-align: center;
+                color: white;
+            }
+            .serviceLabel {
+                width: 100%;
+                font-size: 24px;
+                height: 50px;
+                font-weight: bold;
+                color: white;
+                text-align: center;
+                line-height: 50px;
+                padding-top: 10px;
+            }
+            @media (max-width: 767px) {
+                img {
+                    width: 80%;
+                }
+                .contentSerivce {
+                    width: 80%;
+                }
+            } 
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="headerBlock">
+            <div class="headerMenu">
+                <div class="Vivaldi">Vivaldi</div>
+                <div class="Desc">Магазин музыкальных инструментов</div>
+                <div class="Login">
+                <div class="loginButton" onClick=loginButton()>Войти
+                </div>
+                <div class="loginBlock">
+                    <input class="loginInput" placeholder="Логин..."></input>
+                    <input class="loginInput" type="password" style="top: 35%;"placeholder="Пароль..."></input>
+                    <div class="loginConfirm" onClick=authorize()>Войти</div>
+                </div>
+                
+            </div>
+            </div>
+
+        </div>
+        <div class="burger" onclick="mobileMenu()">
+        <img class="headerMobileButton" src="hamburger.png"></div>
+        </div>           
+        </header>
+    <main>
+    <div class="main">
+        <div class="mobileMenu">
+            <div class="log">
+                <input class="loginInput" placeholder="Логин..."></input>
+                <input class="loginInput" type="password" style="top: 90px;"placeholder="Пароль..."></input>
+                <div class="loginConfirm" onclick="authorize()">Войти</div>
+            </div>
+            <a href="index.html"><div class="menuButton">Главная</div></a>
+            <a href="catalog.html"><div class="menuButton" style="top: 280px;">Каталог</div></a>
+            <a href="service.html"><div class="menuButton" style="top: 360px;">Ремонт</div></a>
+            <a href="cart.html"><div class="menuButton" style="top: 440px;">Корзина</div></a>
+            <a href="about.html"><div class="menuButton" style="top: 520px;">О нас</div></a>
+        </div>
+        <div class="menuBlock">
+            <div class="sideMenuBlock">
+                <a href="index.html"><div class="menuButton">Главная</div></a>
+                <a href="catalog.html"><div class="menuButton">Каталог</div></a>
+                <a href="service.html"><div class="menuButton">Ремонт</div></a>
+                <a href="cart.html"><div class="menuButton">Корзина</div></a>
+                <a href="about.html"><div class="menuButton">О нас</div></a>
+                <div style="color: white; text-align: center;">Мы находимся тут</div>
+                <div class="menuMap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d280.47672196805433!2d49.119015959489836!3d55.77910609758992!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead1450d5b541%3A0x60c04ef32be2bc50!2z0JLQuNCy0LDQu9GM0LTQuCDQvNGD0LfRi9C60LDQu9GM0L3Ri9C1INC40L3RgdGC0YDRg9C80LXQvdGC0Ysg0JrQsNC30LDQvdGM!5e0!3m2!1sru!2sby!4v1714427835631!5m2!1sru!2sby" style="border: 10x solid black; height: 100%; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div class="contentService">
+                <div class="serviceLabel">Ремонт</div>
+                <div class="serviceImage">
+                    <img src="remont.png">
+                </div>
+                <div class="serviceText">Ремонт инструментов - тонкая вещь, которая требует настоящих профессионалов. Сервисный центр Vivaldi готов взяться даже за самую сложную работу, лишь бы ваш любимый инстурмент снова приносил вам счастье!</div>
+                <div class="serviceList"><br>Ремонт струнных инструментов - от 20 руб<br>
+                    Ремонт духовых инструментов - от 30 руб<br>
+                    Ремонт клавишных инструментов - от 50 руб<br>
+                    Ремонт электрических инструментов - от 100 руб<br>
+                    Ремонт ударных инструментов - от 10 руб<br><br></div>
+                <div class="serviceContacts">Горячая линия ремонтного сервиса Vivaldi:<br>
+                    +3752583765783 Геннадий<br>
+                    +3752957389587 Михаил</div>
+            </div>
+        </div>
+        <div class="footerBlock">
+            <div class="footerText">© ООО “Вивальди” Все права не защищены. 2024</div>
+            <div class="socialButtons">
+                <div class="socialIcon" style="background-image: url(instagram.png)"></div>
+                <div class="socialIcon" style="background-image: url(telegram.png)"></div>
+                <div class="socialIcon" style="background-image: url(youtube.png)"></div>
+                <div class="socialIcon" style="background-image: url(vk.png)"></div>
+            </div>
+        </div>
+
+    </div>
+    </main>
+</body>
+</html>
+
+<!-- <div class="png">
+    <img class="mainPngR" src="remont.png">
+    </div>
+    <div class="serviceList">
+        Ремонт инструментов - тонкая вещь, которая требует настоящих профессионалов. Сервисный центр Vivaldi готов взяться даже за самую сложную работу, лишь бы ваш любимый инстурмент снова приносил вам счастье!<br><br>
+            <div><br>Ремонт струнных инструментов - от 20 руб<br>
+            Ремонт духовых инструментов - от 30 руб<br>
+            Ремонт клавишных инструментов - от 50 руб<br>
+            Ремонт электрических инструментов - от 100 руб<br>
+            Ремонт ударных инструментов - от 10 руб<br><br>
+            </div>
+            
+    </div>
+    <div class="serviceList">Горячая линия ремонтного сервиса Vivaldi:<br>
+        +3752583765783 Геннадий<br>
+        +3752957389587 Михаил<br></div>
+</div> -->

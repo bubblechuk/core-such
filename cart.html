@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="script.js"></script>
+        <title>Vivaldi</title>
+        <style>
+            .cart {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .cartBlock {
+                height: 400px;
+                width: 550px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;;
+                margin: 10px;
+                border-radius: 25px 25px 25px 25px;
+                box-shadow: 0px 0px 15px 5px rgba(135,69,49,1);
+            }
+            .cartHeader {
+                height: 50px;
+                width: 550px;
+                background-color:#892201;
+                border-radius: 25px 25px 0px 0px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .cartOffer {
+                text-align: center;
+                height: 300px;
+            }
+            .offerHeader {
+                font-size: 18px;
+                
+                font-weight: bold;
+            } 
+            .cartHeader input {
+                border-radius: 25px 25px 25px 25px;
+                text-align: center;
+                height: 20px;
+            }
+            .cartTitle{
+                margin-top: 15px;
+                height: 30px;
+                color: white;
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .cartContent {
+                height: 400px;
+                width: 550px;
+                background-color: #BC6A3C;
+                border-radius: 0 0 25px 25px;
+                overflow: scroll;
+            }
+            .cartContent > *:nth-child(2n) {
+                background-color: #93522E;
+            }
+            .cartButton {
+                color: white;
+                text-align: center;
+                line-height: 30px;
+                width: 150px;
+                height: 30px;
+                background-color: red;
+                border-radius: 25px 25px 25px 25px;
+            }
+            .cartElement {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 150px;
+
+            }
+            .cartElement img {
+                display: block;
+                margin: 10px;
+                border-radius: 25px 25px 25px 25px;
+                width: 128px;
+            }
+            .cartCont {
+                width: 230px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .cartButtonCont {
+                height: 150px;
+                width: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .cartSearch {
+                background-color: white;
+                margin: 10px;
+                width: 80px;
+            }
+            .offerInput {
+                margin: 5px;
+                height: 20px;
+                width: 50%;
+                border-radius: 25px 25px 25px 25px;
+                text-align: center;
+            }
+            label {
+                color: white;
+                margin: 10px;
+            }
+            .submitButton {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .name, .item_price, .count, .selCount {
+                color: white;
+            }
+            .price {
+                color: white;
+                text-align: center;
+                line-height: 30px;
+                height: 30px;
+                width: 175px;
+                background-color: #BC6A3C;
+                border-radius: 25px 25px 0 0;
+                box-shadow: 0px 0px 15px 5px rgba(135,69,49,1);
+            }
+            .submit {
+                color: white;
+                text-align: center;
+                font-weight: bold;
+                line-height: 40px;
+                height: 40px;
+                width: 200px;
+                background-color: #431000;
+                border-radius: 25px 25px 25px 25px;
+                box-shadow: 0px 0px 15px 5px rgba(135,69,49,1);
+            }
+            @media (max-width: 767px) {
+               .main {
+                height: 1000px;
+               }
+               .contentBlock {
+                display: flex;
+                justify-content: center;
+               }
+               .contentBlock input {
+                height: 30px;
+               }
+               .submitButton {
+                margin-top: 100px;
+               }
+               .cartBlock {
+                width: 80%;
+               }
+               .cartContent, .cartHeader {
+                width: 100%;
+               }
+               .cartContent {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+               }
+               .cartElement {
+                width: 80%;
+                font-size: 14px;
+               }
+               .cartElement img {
+                width: 20%;
+               }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="headerBlock">
+            <div class="headerMenu">
+                <div class="Vivaldi">Vivaldi</div>
+                <div class="Desc">Магазин музыкальных инструментов</div>
+                <div class="Login">
+                <div class="loginButton" onClick=loginButton()>Войти
+                </div>
+                <div class="loginBlock">
+                    <input class="loginInput" placeholder="Логин..."></input>
+                    <input class="loginInput" type="password" style="top: 35%;"placeholder="Пароль..."></input>
+                    <div class="loginConfirm" onClick=authorize()>Войти</div>
+                </div>
+                
+            </div>
+            </div>
+
+        </div>
+        <div class="burger" onclick="mobileMenu()">
+        <img class="headerMobileButton" src="hamburger.png"></div>
+        </div>           
+        </header>
+    <main>
+    <div class="main">
+        <div class="mobileMenu">
+            <div class="log">
+            <input class="loginInput" placeholder="Логин..."></input>
+            <input class="loginInput" type="password" style="top: 90px;"placeholder="Пароль..."></input>
+            <div class="loginConfirm" onclick="authorize()">Войти</div>
+            </div>
+            <a href="index.html"><div class="menuButton">Главная</div></a>
+            <a href="catalog.html"><div class="menuButton" style="top: 280px;">Каталог</div></a>
+            <a href="service.html"><div class="menuButton" style="top: 360px;">Ремонт</div></a>
+            <a href="cart.html"><div class="menuButton" style="top: 440px;">Корзина</div></a>
+            <a href="about.html"><div class="menuButton" style="top: 520px;">О нас</div></a>
+        </div>
+        <div class="menuBlock">
+            <div class="sideMenuBlock">
+                <a href="index.html"><div class="menuButton">Главная</div></a>
+                <a href="catalog.html"><div class="menuButton">Каталог</div></a>
+                <a href="service.html"><div class="menuButton">Ремонт</div></a>
+                <a href="cart.html"><div class="menuButton">Корзина</div></a>
+                <a href="about.html"><div class="menuButton">О нас</div></a>
+                <div style="color: white; text-align: center;">Мы находимся тут</div>
+                <div class="menuMap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d280.47672196805433!2d49.119015959489836!3d55.77910609758992!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead1450d5b541%3A0x60c04ef32be2bc50!2z0JLQuNCy0LDQu9GM0LTQuCDQvNGD0LfRi9C60LDQu9GM0L3Ri9C1INC40L3RgdGC0YDRg9C80LXQvdGC0Ysg0JrQsNC30LDQvdGM!5e0!3m2!1sru!2sby!4v1714427835631!5m2!1sru!2sby" style="border: 10x solid black; height: 100%; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div class="cart">
+            <div class="cartTitle">Корзина заказов</div>
+            <div class="cartBlock">
+                <div class="cartHeader">
+                    <input id="search" placeholder="Поиск..."></input><input onclick="cartSearch()" class="cartSearch" type="button" value="Поиск"></input>
+                </div>
+                <div class="cartContent"></div>
+            </div>
+            <div class="cartOffer">
+                <form>
+                    <label class="offerHeader">Оформление заказа</label><br>
+                   <input  class="offerInput" placeholder="Ваше имя..."></input><br>
+                   <input class="offerInput" placeholder="Фамилия..."></input><br>
+                   <input class="offerInput" placeholder="Отчество..."></input><br>
+                   <input class="offerInput" placeholder="Адрес..."></input><br>
+                   <input class="offerInput" placeholder="Почта..."></input><br>
+                   <input class="offerInput" placeholder="Телефон..."></input><br>
+                   <label class="offerHeader">Доставка</label><br>
+                   <input id="self" type="radio" name="delivery" onclick="location.reload()" checked></input><label name="delivery">Самовывоз (0 руб)</label>
+                   <input id="delivery" type="radio" name="delivery" onclick="location.reload()"></input><label name="delivery">Доставка на дом (10 руб)</label>
+                </form>
+            </div>
+            <div class="submitButton">
+                <div class="price">price</div>
+                <div class="submit" onclick="pay()">Оплатить</div>
+            </div>
+        </div>
+        </div>
+        <div class="footerBlock">
+            <div class="footerText">© ООО “Вивальди” Все права не защищены. 2024</div>
+            <div class="socialButtons">
+                <div class="socialIcon" style="background-image: url(instagram.png)"></div>
+                <div class="socialIcon" style="background-image: url(telegram.png)"></div>
+                <div class="socialIcon" style="background-image: url(youtube.png)"></div>
+                <div class="socialIcon" style="background-image: url(vk.png)"></div>
+            </div>
+        </div>
+
+    </div>
+    </main>
+</body>
+</html>

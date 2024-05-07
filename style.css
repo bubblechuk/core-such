@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&family=Montserrat:wght@400&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat";
+}
+  a:link { 
+    text-decoration: none; 
+  } 
+  a:visited { 
+    text-decoration: none; 
+  } 
+  a:hover { 
+    text-decoration: none; 
+  } 
+  a:active { 
+    text-decoration: none; 
+  }
+.headerBlock {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    left: 0px;
+    top: 0px;
+    background: #892201;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+}
+.headerMobileButton {
+    display: none;
+}
+.burger {
+    display: none;
+}
+.headerMenu {
+    position: absolute;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    left: 50%;
+    width: 800px;
+    height: 100px;
+   }
+   .Vivaldi {
+    font-family: "Island Moments";
+    font-size: 64px;
+    color: white;
+    line-height: 100px;
+    height: 100px;
+    width: 200px;
+    text-align: center;
+   }
+   .Desc {
+    width: 400px;
+    height: 100px;
+    font-size: 16px;
+    line-height: 100px;
+    text-align: center;
+    color: #FFFFFF;
+    }
+    .Login {
+        width: 200px;
+    }
+    .loginButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin-top: 35px;
+        border-radius: 25px 25px 25px 25px;
+        background-color: #BC6A3C;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin-left: 25px;
+    }
+    .loginBlock {
+        display: none;
+        justify-content: center;
+        flex-direction: column;
+        width: 150px;
+        height: 135px;
+        margin-left: 25px;
+        background-color: #93522E;
+        border-radius: 0 0 25px 25px;
+        align-items: center;
+    }
+    .loginConfirm {
+        width: 110px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background-color: #431000;
+        color: white;
+        margin: 10px;
+        border-radius: 25px 25px 25px 25px;
+    }
+    .loginInput {
+        border-radius: 10px 10px 10px 10px;
+        height: 20px;
+        width: 110px;
+        text-align: center;
+        margin: 0 10px 10px 10px;
+    }
+.loginButton:hover {
+    background: #93522E;
+}
+
+.loginImage {
+    position: fixed;
+    z-index: 3;
+    
+    background: url(user.png);
+}
+
+.loginConfirm:hover {
+    background-color: black;
+}
+body {
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #431000;;
+  position: relative; /* Относительное позиционирование для body */
+    min-height: 100vh; /* Минимальная высота равная высоте видимой области браузера */
+    margin: 0;
+    padding: 0;
+}
+.main {
+    position: relative;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 880px; 
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 90px 50px rgba(67,16,0,1);
+            }
+.menuBlock {
+    width: 200px;
+    height: 100%;
+    background-color: rgb(188, 106, 60, 0.75);
+}
+
+.sideMenuBlock {
+    width: auto;
+    height: 450px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #892201;
+    padding: 10px;
+}
+.menuButton {
+    color: white;
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #BC6A3C;
+    border-radius: 5px;
+    margin: 10px 10px 10px 0;
+    text-align: center;
+}
+
+.menuMap {
+    margin: 5px;
+    height: 200px;
+}
+.menuButton:hover {
+    background: #93522E;
+}
+.menuMapText {
+    position: absolute;
+    width: 90%;
+    height: 17px;
+    left: 5%;
+    top: 230px;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    z-index: 2;
+    color: #FFFFFF;
+}
+.mobileMenu {
+    overflow:scroll;
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #431000;
+    z-index: 3;
+}
+.mobiButton {
+    width: 250px;
+    height: 75px;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px 25px 25px 25px;
+    background-color: #892201;
+    text-align: center;
+    line-height: 75px;
+    font-size: 32px;
+}
+.log {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menuMobileMapText {
+    position: absolute;
+    width: 90%;
+    height: 75px;
+    left: 5%;
+    top: 430px;
+    font-size: 32px;
+    text-align: center;
+    font-family: "Montserrat";
+    color: white;
+    border-radius: 5px;
+    z-index: 2;
+    line-height: 75px;
+}
+
+.mobileButton:hover {
+    background: #93522E;
+}
+.contentBlock {
+    width: 600px;
+    height: 100%;
+    background-color: rgb(198, 152, 116, 0.75);
+}
+.mainPng {
+    position: absolute;
+    width: 70%;
+    height: auto;
+    left: 15%;
+    top: 10%;
+    display: inline-block;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.footerBlock {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 100%;
+    width: 100%;
+    height: 100px;
+    background-color: #431000; 
+    color: white; 
+    text-align: center;
+}
+.footerText {
+    text-align: center;
+    width: 600px;
+    line-height: 100px;
+}
+.footerGrad {
+    position: absolute;
+    top: calc(100% + 100px); /* 100% высоты .main + 100px сдвиг */
+    width: 100%;
+    background: linear-gradient(#431000, rgb(0,0,0,0));
+    color: white; /* для примера цвета текста */
+    text-align: center; /* для центрирования содержимого */
+    
+    height: 100px;
+}
+.socialButtons {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    
+}
+.socialIcon {
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+}
+@media (max-width: 767px) {
+    .sideMenuBlock {
+        display: none;
+    }
+    .menuBlock {
+        display: none;
+    }
+    .Desc {
+        display: none;
+    }
+    .headerBlock {
+        height: 100px;
+
+    }
+    .headerMobileButton {
+        display: block;
+        position: fixed;
+        background: url(hamburger.png);
+        width: 64px;
+        height: 64px;
+        left: 3%;
+        z-index: 3;
+    }
+    .burger {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+    }
+    .Vivaldi {
+        font-size: 64px;
+        left: 35%;
+        line-height: 100px;
+    }
+    .Login {
+        display: none;
+    }
+    .menuButton {
+    width: 90%;
+    height: 75px;
+    left: 5%;
+    top: 200px;
+    font-size: 32px;
+    text-align: center;
+    font-family: "Montserrat";
+    color: white;
+    background: #BC6A3C;
+    border-radius: 5px;
+    z-index: 2;
+    line-height: 75px;
+    margin-right: 0;
+    text-decoration: none;
+    margin-left: 5%;
+    }
+    .menuMap {
+        position: absolute;
+        top: 650px;
+        width: 80%;
+        left: 10%;
+    }
+    .loginInput {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        top: 25px;
+        position: absolute;
+        text-align: center;
+        height: 50px;
+        font-size: 24px;
+        font-family: "Montserrat";
+        background: #FFFFFF;
+        border-radius: 25px;
+    }
+    .loginConfirm {
+        position: absolute;
+        width: 50%;
+        left: 25%;
+        top: 140px;
+        position: absolute;
+        text-align: center;
+        height: 50px;
+        font-size: 24px;
+        font-family: "Montserrat";
+        background: #BC6A3C;
+        line-height: 50px;
+        border-radius: 25px;
+    }
+    .main {
+        position: absolute;
+        transform: none;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .contentBlock {
+        width: 100%;
+        left: 0;
+        background-color: rgb(198, 152, 116, 1);
+    }
+    .footerText {
+        display: none;
+    }
+    .socialButtons {
+        margin-right: 0;
+        width: 600px;
+    }
+    .socialIcon {
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .loginButton {
+        display: none;
+    }
+    .mobileMenu {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+        position: absolute;
+        z-index: 2;
+    }
+}
