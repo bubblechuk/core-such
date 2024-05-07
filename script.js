@@ -77,7 +77,8 @@ for (var i = 0; i < productsXML.length; i++) {
 
 user = localStorage.getItem("user");
 if (!user) {
-  user = sampleusr;
+  localStorage.setItem('user', JSON.stringify(sampleusr));
+  window.location.reload();
 }
 else {
   user = JSON.parse(user);
