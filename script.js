@@ -37,50 +37,48 @@ var sampleusr = {
   card: {
     num: "231231",
     expire: "24/02/2026",
-    cvv: "111"
+    cvv: "111",
   },
-  cart: []
-}
+  cart: [],
+};
 var sortOrder = true;
 var sortQuantity = true;
-fetch('products.xml')
-    .then(response => response.text())
-    .then(xmlData => {
-var parser = new DOMParser();
-var xml = parser.parseFromString(xmlData, "text/xml");
-var productsXML = xml.getElementsByTagName("Product");
-var tmp = productsDB;
-for (var i = 0; i < productsXML.length; i++) {
-  var feedtmp = [];
-  var feedbackNodes =
-    productsXML[i].getElementsByTagName("Feedbacks")[0].childNodes;
-  for (var j = 1; j < feedbackNodes.length; j += 2) {
-    feedtmp.push({
-      nick: feedbackNodes[j].childNodes[1].textContent,
-      rate: feedbackNodes[j].childNodes[3].textContent,
-      content: feedbackNodes[j].childNodes[5].textContent,
-    });
-  }
+fetch("products.xml")
+  .then((response) => response.text())
+  .then((xmlData) => {
+    var parser = new DOMParser();
+    var xml = parser.parseFromString(xmlData, "text/xml");
+    var productsXML = xml.getElementsByTagName("Product");
+    for (var i = 0; i < productsXML.length; i++) {
+      var feedtmp = [];
+      var feedbackNodes =
+        productsXML[i].getElementsByTagName("Feedbacks")[0].childNodes;
+      for (var j = 1; j < feedbackNodes.length; j += 2) {
+        feedtmp.push({
+          nick: feedbackNodes[j].childNodes[1].textContent,
+          rate: feedbackNodes[j].childNodes[3].textContent,
+          content: feedbackNodes[j].childNodes[5].textContent,
+        });
+      }
 
-  productsDB.push({
-    name: productsXML[i].getElementsByTagName("Name")[0].textContent,
-    type: productsXML[i].getElementsByTagName("Type")[0].textContent,
-    price: productsXML[i].getElementsByTagName("Price")[0].textContent,
-    count: productsXML[i].getElementsByTagName("Count")[0].textContent,
-    selCount: 0,
-    image: productsXML[i].getElementsByTagName("Image")[0].textContent,
-    desc: productsXML[i].getElementsByTagName("Desc")[0].textContent,
-    feedbacks: feedtmp,
+      productsDB.push({
+        name: productsXML[i].getElementsByTagName("Name")[0].textContent,
+        type: productsXML[i].getElementsByTagName("Type")[0].textContent,
+        price: productsXML[i].getElementsByTagName("Price")[0].textContent,
+        count: productsXML[i].getElementsByTagName("Count")[0].textContent,
+        selCount: 0,
+        image: productsXML[i].getElementsByTagName("Image")[0].textContent,
+        desc: productsXML[i].getElementsByTagName("Desc")[0].textContent,
+        feedbacks: feedtmp,
+      });
+    }
   });
-}
-    });
 
 user = localStorage.getItem("user");
 if (!user) {
-  localStorage.setItem('user', JSON.stringify(sampleusr));
+  localStorage.setItem("user", JSON.stringify(sampleusr));
   window.location.reload();
-}
-else {
+} else {
   user = JSON.parse(user);
 }
 // document.addEventListener("DOMContentLoaded", function() {
@@ -225,6 +223,11 @@ const casort = (...str) => {
   refreshCatalog(tmp);
 };
 const sortPrice = () => {
+  try {
+    tmp;
+  } catch (e) {
+    tmp = productsDB;
+  }
   if (sortOrder === true) {
     tmp.sort((a, b) => a.price - b.price);
     sortOrder = false;
@@ -235,6 +238,11 @@ const sortPrice = () => {
   refreshCatalog(tmp);
 };
 const sortByQuantity = () => {
+  try {
+    tmp;
+  } catch (e) {
+    tmp = productsDB;
+  }
   if (sortQuantity === true) {
     tmp.sort((a, b) => a.count - b.count);
     sortQuantity = false;
@@ -265,6 +273,13 @@ function loadProductInfo() {
   document.getElementsByClassName("productContent")[0].childNodes[5].innerHTML =
     "На складе: " + elem.count;
   document.getElementsByClassName("productDesc")[0].innerHTML = elem.desc;
+  user.cart.map((element) => {
+    if (element.name === location.search.substr(1)) {
+      document.getElementsByClassName("cartButton")[0].innerHTML = "Удалить";
+      document.getElementsByClassName("cartButton")[0].style =
+        "background-color: red;";
+    }
+  });
 }
 function refreshFeed() {
   var ind;
@@ -364,14 +379,16 @@ function refreshCatalog(arr) {
         var parent = document.getElementsByClassName("elementContent")[index];
         parent.removeChild(document.getElementsByClassName("cartButton")[0]);
       }
-      user.cart.map((element) => {
-        if (element.name === arr[index].name) {
-          document.getElementsByClassName("cartButton")[i].innerHTML =
-            "Удалить";
-          document.getElementsByClassName("cartButton")[i].style =
-            "background-color: red;";
-        }
-      });
+      if (user.authorized == 1) {
+        user.cart.map((element) => {
+          if (element.name === arr[index].name) {
+            document.getElementsByClassName("cartButton")[i].innerHTML =
+              "Удалить";
+            document.getElementsByClassName("cartButton")[i].style =
+              "background-color: red;";
+          }
+        });
+      }
     })(i);
   }
 }
@@ -435,14 +452,14 @@ const unauthorize = () => {
 const pay = () => {
   var offerInput = document.getElementsByClassName("offerInput");
   if (
-    offerInput[0].value.length > 1 ||
-    offerInput[1].value.length > 1 ||
-    offerInput[2].value.length > 1
+    offerInput[0].value.trim().length > 1 ||
+    offerInput[1].value.trim().length > 1 ||
+    offerInput[2].value.trim().length > 1
   ) {
-    if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(offerInput[4].value)) {
+    if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(offerInput[4].value.trim())) {
       if (
         /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(
-          offerInput[5].value
+          offerInput[5].value.trim()
         )
       ) {
         alert("Заказ отправлен в обработку");
@@ -485,4 +502,14 @@ const save = () => {
     alert("Неверный номер карты!");
   }
 };
-function a() {if (document.getElementsByClassName('filterList')[0].style.display === 'none') {document.getElementsByClassName('filterList')[0].style.display = 'block'; document.getElementsByClassName('catalogFilter')[0].style = 'width: 30%'; } else {document.getElementsByClassName('filterList')[0].style.display = 'none'; document.getElementsByClassName('catalogFilter')[0].style = 'width: 10%';}}
+function a() {
+  if (
+    document.getElementsByClassName("filterList")[0].style.display === "none"
+  ) {
+    document.getElementsByClassName("filterList")[0].style.display = "block";
+    document.getElementsByClassName("catalogFilter")[0].style = "width: 30%";
+  } else {
+    document.getElementsByClassName("filterList")[0].style.display = "none";
+    document.getElementsByClassName("catalogFilter")[0].style = "width: 10%";
+  }
+}
