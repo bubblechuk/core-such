@@ -1,214 +1,269 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="script.js"></script>
-        <title>Vivaldi</title>
-        <link rel="stylesheet" href="style.css">
-        <style>
-            .contentBlock {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-            .productBlock {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                border-radius: 25px 25px 25px 25px;
-                width: 580px;
-                height: 800px;
-                background-color: #BC6A3C;
-                box-shadow: 0px 0px 15px 5px rgba(135,69,49,1);
-            }
-            .productMain {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                height: 310px;
-                width: 100%;
-            }
-            .productContent {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: auto;
-                color: white;
-                width: 270px;
-                text-align: center;
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+    <title>Vivaldi</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contentBlock {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .productBlock {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 25px 25px 25px 25px;
+            width: 580px;
+            height: 800px;
+            background-color: #BC6A3C;
+            box-shadow: 0px 0px 15px 5px rgba(135, 69, 49, 1);
+        }
+
+        .productMain {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 310px;
+            width: 100%;
+        }
+
+        .productContent {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            color: white;
+            width: 270px;
+            text-align: center;
+
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .price {
+            font-size: 18px;
+        }
+
+        .cartButton {
+            width: 150px;
+            line-height: 30px;
+            height: 30px;
+            border-radius: 25px 25px 25px 25px;
+            background-color: green;
+            margin: 10px;
+        }
+
+        .productDesc {
+            text-align: center;
+            color: white;
+            height: 200px;
+            width: 480px;
+        }
+
+        .productFeed {
+            flex-wrap: wrap-reverse;
+            display: flex;
+            flex-direction: row;
+            overflow: scroll;
+            width: 480px;
+            height: 150px;
+            margin-top: 25px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+
+        .feedback {
+            width: 480px;
+            height: 150px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: #892201;
+            border-radius: 25px 25px 25px 25px;
+        }
+
+        .feedback img {
+            width: 64px;
+            height: 64px;
+            margin: 10px;
+        }
+
+        .nick,
+        .rate,
+        .content {
+            margin: 10px;
+            font-size: 14px;
+        }
+
+        .content {
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .image {
+            display: block;
+            margin: 25px;
+            width: 256px;
+            height: 256px;
+            border-radius: 25px 25px 25px 25px;
+        }
+
+        @media (max-width: 767px) {
+            .main {
+                height: 1000px;
             }
-            .name {
-                font-weight: bold;
-                font-size: 24px;
+
+            .productBlock {
+                width: 90%;
             }
-            .price {
-                font-size: 18px;
+
+            .productMain img {
+                height: 128px;
+                width: 128px;
             }
-            .cartButton {
-                width: 150px;
-                line-height: 30px;
-                height: 30px;
-                border-radius: 25px 25px 25px 25px;
-                background-color: green;
-                margin: 10px;
-            }
+
             .productDesc {
-                text-align: center;
-                color: white;
-                height: 200px;
-                width: 480px;
+                width: auto;
             }
+
             .productFeed {
-                flex-wrap:wrap-reverse;
-                display: flex;
-                flex-direction: row;
-                overflow: scroll;
-                width: 480px;
-                height: 150px;
-                margin-top: 25px;
-                font-weight: bold;
-                color: white;
-                text-align: center;
-            }
-            .feedback {
-                width: 480px;
-                height: 150px;
-                margin-bottom: 10px;
-                display: flex;
-                flex-direction: row;
+                width: auto;
                 justify-content: center;
-                align-items: center;
-                background-color: #892201; 
-                border-radius: 25px 25px 25px 25px;
             }
-            .feedback img {
-                width: 64px;
-                height: 64px;
-                margin: 10px;
+
+            .feedback {
+                width: 90%;
             }
-            .nick, .rate, .content {
-                margin: 10px;
-                font-size: 14px;
+
+            .footerBlock {
+                display: none;
             }
+
             .content {
-                text-align: left;
-                font-size: 12px;
+                width: 200px;
+                height: 100px;
+                overflow: scroll;
             }
-            .image {
-                display:block; margin: 25px; width: 256px; height: 256px; border-radius: 25px 25px 25px 25px;
-            }
-            @media (max-width: 767px) {
-                .main {
-                    height: 1000px;
-                }
-                .productBlock {
-                    width: 90%;
-                }
-                .productMain img {
-                    height: 128px;
-                    width: 128px;
-                }
-                .productDesc {
-                    width: auto;
-                }
-                .productFeed{
-                    width: auto;
-                    justify-content: center;
-                }
-                .feedback {
-                    width: 90%;
-                }
-                .footerBlock {
-                    display: none;
-                }
-                .content {
-                    width: 200px;
-                    height: 100px;
-                    overflow: scroll;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <div class="headerBlock">
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="headerBlock">
             <div class="headerMenu">
                 <div class="Vivaldi">Vivaldi</div>
                 <div class="Desc">Магазин музыкальных инструментов</div>
                 <div class="Login">
-                <div class="loginButton" onClick=loginButton()>
-                    <svg class="svg-icon" viewBox="0 0 20 20" width="20px" height="20px" style="color: white;">
-                        <path fill="white" d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
-                    </svg>
-                    Войти
+                    <div class="loginButton" onClick=loginButton()>
+                        <svg class="svg-icon" viewBox="0 0 20 20" width="20px" height="20px" style="color: white;">
+                            <path fill="white"
+                                d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z">
+                            </path>
+                        </svg>
+                        Войти
+                    </div>
+                    <div class="loginBlock">
+                        <input class="loginInput" placeholder="Логин..."></input>
+                        <input class="loginInput" type="password" style="top: 35%;" placeholder="Пароль..."></input>
+                        <div class="loginConfirm" onClick=authorize()>Войти</div>
+                    </div>
+
                 </div>
-                <div class="loginBlock">
-                    <input class="loginInput" placeholder="Логин..."></input>
-                    <input class="loginInput" type="password" style="top: 35%;"placeholder="Пароль..."></input>
-                    <div class="loginConfirm" onClick=authorize()>Войти</div>
-                </div>
-                
-            </div>
             </div>
 
         </div>
         <div class="burger" onclick="mobileMenu()">
-        <img class="headerMobileButton" src="hamburger.png"></div>
-        </div>           
-        </header>
+            <img class="headerMobileButton" src="hamburger.png">
+        </div>
+        </div>
+    </header>
     <main>
-    <div class="main">
-        <div class="mobileMenu">
-            <div class="log">
-                <input class="loginInput" placeholder="Логин..."></input>
-                <input class="loginInput" type="password" style="top: 90px;"placeholder="Пароль..."></input>
-                <div class="loginConfirm" onclick="authorize()">Войти</div>
+        <div class="main">
+            <div class="mobileMenu">
+                <div class="log">
+                    <input class="loginInput" placeholder="Логин..."></input>
+                    <input class="loginInput" type="password" style="top: 90px;" placeholder="Пароль..."></input>
+                    <div class="loginConfirm" onclick="authorize()">Войти</div>
+                </div>
+                <a href="index.html">
+                    <div class="menuButton">Главная</div>
+                </a>
+                <a href="catalog.html">
+                    <div class="menuButton" style="top: 280px;">Каталог</div>
+                </a>
+                <a href="service.html">
+                    <div class="menuButton" style="top: 360px;">Ремонт</div>
+                </a>
+                <a href="cart.html">
+                    <div class="menuButton" style="top: 440px;">Корзина</div>
+                </a>
+                <a href="about.html">
+                    <div class="menuButton" style="top: 520px;">О нас</div>
+                </a>
             </div>
-            <a href="index.html"><div class="menuButton">Главная</div></a>
-            <a href="catalog.html"><div class="menuButton" style="top: 280px;">Каталог</div></a>
-            <a href="service.html"><div class="menuButton" style="top: 360px;">Ремонт</div></a>
-            <a href="cart.html"><div class="menuButton" style="top: 440px;">Корзина</div></a>
-            <a href="about.html"><div class="menuButton" style="top: 520px;">О нас</div></a>
-        </div>
-        <div class="menuBlock">
-            <div class="sideMenuBlock">
-                <a href="index.html"><div class="menuButton">Главная</div></a>
-                <a href="catalog.html"><div class="menuButton">Каталог</div></a>
-                <a href="service.html"><div class="menuButton">Ремонт</div></a>
-                <a href="cart.html"><div class="menuButton">Корзина</div></a>
-                <a href="about.html"><div class="menuButton">О нас</div></a>
-                <div style="color: white; text-align: center;">Мы находимся тут</div>
-                <div class="menuMap">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d280.47672196805433!2d49.119015959489836!3d55.77910609758992!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead1450d5b541%3A0x60c04ef32be2bc50!2z0JLQuNCy0LDQu9GM0LTQuCDQvNGD0LfRi9C60LDQu9GM0L3Ri9C1INC40L3RgdGC0YDRg9C80LXQvdGC0Ysg0JrQsNC30LDQvdGM!5e0!3m2!1sru!2sby!4v1714427835631!5m2!1sru!2sby" style="border: 10x solid black; height: 100%; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="menuBlock">
+                <div class="sideMenuBlock">
+                    <a href="index.html">
+                        <div class="menuButton">Главная</div>
+                    </a>
+                    <a href="catalog.html">
+                        <div class="menuButton">Каталог</div>
+                    </a>
+                    <a href="service.html">
+                        <div class="menuButton">Ремонт</div>
+                    </a>
+                    <a href="cart.html">
+                        <div class="menuButton">Корзина</div>
+                    </a>
+                    <a href="about.html">
+                        <div class="menuButton">О нас</div>
+                    </a>
+                    <div style="color: white; text-align: center;">Мы находимся тут</div>
+                    <div class="menuMap">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d280.47672196805433!2d49.119015959489836!3d55.77910609758992!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead1450d5b541%3A0x60c04ef32be2bc50!2z0JLQuNCy0LDQu9GM0LTQuCDQvNGD0LfRi9C60LDQu9GM0L3Ri9C1INC40L3RgdGC0YDRg9C80LXQvdGC0Ysg0JrQsNC30LDQvdGM!5e0!3m2!1sru!2sby!4v1714427835631!5m2!1sru!2sby"
+                            style="border: 10x solid black; height: 100%; width: 100%;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="contentBlock">
-           <div class="productBlock">
-            <div class="productMain">
-                <img class="image" src="ibanez.png">
-                <div class="productContent">
-                    <div class="name">name</div>
-                    <div class="price">price</div>
-                    <div class="count">count</div>
-                    <div class="cartButton" onclick="addCart(location.search.substr(1), 0)">В корзину</div>
+            <div class="contentBlock">
+                <div class="productBlock">
+                    <div class="productMain">
+                        <img class="image" src="ibanez.png">
+                        <div class="productContent">
+                            <div class="name">name</div>
+                            <div class="price">price</div>
+                            <div class="count">count</div>
+                            <div class="cartButton" onclick="addCart(location.search.substr(1), 0)">В корзину</div>
+                        </div>
+                    </div>
+                    <div class="productDesc">
+
+                    </div>
+                    <div class="productFeed">Отзывы
+
+                    </div>
                 </div>
             </div>
-            <div class="productDesc">
-
-            </div>
-            <div class="productFeed">Отзывы
-
-            </div>
-           </div>
-        </div>
         </div>
         <div class="footerBlock">
             <div class="footerText">© ООО “Вивальди” Все права не защищены. 2024</div>
@@ -220,7 +275,8 @@
             </div>
         </div>
 
-    </div>
+        </div>
     </main>
 </body>
+
 </html>
