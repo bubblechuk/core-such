@@ -116,14 +116,14 @@
     position: fixed;
     z-index: 3;
     
-    background: url(user.png);
+    background: url(images/user.png);
 }
 
 .loginConfirm:hover {
     background-color: black;
 }
 body {
-  background-image: url('background.png');
+  background-image: url(images/background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #431000;;
@@ -305,7 +305,7 @@ body {
     .headerMobileButton {
         display: block;
         position: fixed;
-        background: url(hamburger.png);
+        background: url(images/hamburger.png);
         width: 64px;
         height: 64px;
         left: 3%;

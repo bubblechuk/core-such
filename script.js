@@ -1,7 +1,7 @@
 var productsDB = new Array();
 var feedback = `
 <div class=feedback>
-    <img src="usr.png">
+    <img src="images/usr.png">
     <div class="nick"></div>
     <div class="rate"></div>
     <div class="content"></div>
@@ -81,17 +81,12 @@ if (!user) {
 } else {
   user = JSON.parse(user);
 }
-// document.addEventListener("DOMContentLoaded", function() {
-//   var element = document.getElementsByClassName("burger")[0];
-
-//   // Добавляем обработчик события при касании экрана
-//   element.addEventListener("touchstart", function(event) {
-//       // Обработка касания
-//       document.getElementsByClassName("mobileMenu")[0].style.display = "block";
-//   });
-// });
 var cartmp = user.cart;
+window.addEventListener("resize", handleResize);
 window.onload = () => {
+  refreshFeed();
+  refreshCatalog(productsDB);
+  refreshCart(user.cart);
   if (document.getElementsByClassName("cart")[0] !== undefined) {
     if (user.authorized === 0) {
       alert("Вы не авторизированы. Пожалуйста войдите в аккаунт.");
@@ -99,6 +94,7 @@ window.onload = () => {
     }
   }
   if (document.getElementsByClassName("productMain")[0] !== undefined) {
+    document.getElementsByTagName("title")[0].innerHTML = "Vivaldi | " + location.search.substr(1);
     document.getElementsByClassName("footerBlock")[0].remove();
     loadProductInfo();
   }
@@ -119,9 +115,6 @@ window.onload = () => {
       document.getElementById("nick").innerHTML = user.nick;
     }
   }
-  refreshFeed();
-  refreshCatalog(productsDB);
-  refreshCart(user.cart);
 };
 function inputAmount(selc, i) {
   var sel = prompt(
@@ -392,8 +385,6 @@ function refreshCatalog(arr) {
     })(i);
   }
 }
-//localStorage.setItem("user", JSON.stringify(user));
-
 let button = 0;
 const loginButton = () => {
   if (user.authorized === 1) {
@@ -511,5 +502,29 @@ function a() {
   } else {
     document.getElementsByClassName("filterList")[0].style.display = "none";
     document.getElementsByClassName("catalogFilter")[0].style = "width: 10%";
+  }
+}
+function handleResize() {
+  var windowWidth = window.innerWidth;
+  var mobileMenu = document.getElementsByClassName("mobileMenu")[0];
+  var foot = document.getElementsByClassName("footerBlock")[0];
+  var catalogFilter = document.getElementsByClassName("catalogFilter")[0];
+  if (windowWidth > 768) {
+    if (mobileMenu) {
+      mobileMenu.style.display = "none";
+      if (foot) {
+        foot.style.display = "flex";
+      }
+      if (catalogFilter) {
+        catalogFilter.style.width = "150px";
+        document.getElementsByClassName("filterList")[0].style.display =
+          "block";
+      }
+      document.getElementsByClassName("contentBlock")[0].style.display = "flex";
+      mobilemenu = 0;
+    }
+  } else {
+    document.getElementsByClassName("filterList")[0].style.display = "none";
+    catalogFilter.style.width = "10%";
   }
 }
